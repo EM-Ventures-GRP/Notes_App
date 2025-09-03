@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+ENV/
+build/
+dist/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Project data
+notes.txt

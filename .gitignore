@@ -1,17 +1,22 @@
-# Python
+# Byte-compiled / cache files
 __pycache__/
 *.py[cod]
-*.egg-info/
-.env
+*$py.class
+
+# Virtual environments
 .venv/
 venv/
 ENV/
-build/
-dist/
+env/
 
-# OS cruft
+# Local configuration
+*.log
+*.env
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# Project data
-notes.txt
+# Project-specific
+notes.json
+ship_notes.json

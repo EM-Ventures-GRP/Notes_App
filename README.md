@@ -1,27 +1,29 @@
-# Notes App v2.15 — CLI Notebook Organizer
+# Notes App v2.18 — CLI Notebook Organizer
 
 A lightweight, command-line notes manager built in Python.  
 It supports categories, editing, safe error handling, search, and persistent storage in a JSON file (`notes.json`).  
-Designed as a learning project, the app demonstrates functions, dictionaries, nested loops, sets, error handling, and string handling while growing version-by-version with new features.  
+Designed as a learning project, the app demonstrates functions, dictionaries, nested loops, sets, comprehensions, error handling, and string handling while growing version-by-version with new features.  
 
-## Features (v2.15)
+## Features (v2.18)
 
 - Add notes (with category, defaults to `"General"`)  
 - Show notes grouped by category (with consistent numbering via `show_numbered()`)  
 - Search notes (case-insensitive, highlights matches with `[ ]`)  
-- Delete notes (safe error handling for invalid inputs)  
-- Move notes between categories (auto-creates destination if missing)  
-- **Edit notes** with duplicate guard + safe cancel  
+- Delete notes (with confirmation, safe error handling for invalid inputs, auto-removes empty categories, and keeps `seen` in sync)  
+- Move notes between categories (auto-creates destination if missing, no-op guard if same category, with confirmation)  
+- **Edit notes** with duplicate guard, safe cancel, and confirmation flow  
 - Case-insensitive duplicate detection using a `seen` set  
 - Persistent save/load with JSON, including migration from older flat-list format  
 - Friendly error messages and tidy UX  
+- **Helpers tested with pytest** (e.g. `list_unique_categories`) for safer refactors  
 
-##  How to Run
+## How to Run
 
 1. Clone this repo and navigate to the folder.  
 2. Run the program with:  
    ```bash
    python3 notes_app.py
+
 
 ## Changelog
 - v1.0: Basic Notes App (add, show, exit)
@@ -41,5 +43,7 @@ Designed as a learning project, the app demonstrates functions, dictionaries, ne
 - v2.13: Introduced seen set for fast duplicate detection (O(1) lookups). Kept seen synchronized on add/delete/load.
 - v2.14: UX polish — improved duplicate handling flow, clearer error messages, and small code refactors for consistency.
 - v2.15: New edit_note with seen-sync, show_numbered helper, robust load_notes with migration.
-
+- v2.16: Integrated confirm() helper across edit, move, and delete — actions now require explicit "y" confirmation before mutating.
+- v2.17: Added no-op guards to prevent unnecessary actions (e.g., moving a note into the same category or editing to identical text).
+- v2.18: Introduced list_unique_categories helper with dedicated pytest tests; refactored delete/move for consistent return values.
 
